@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wholehand-force-regulation"
+version = "0.1.0"
+description = "Geometry-based whole-hand force regulation in MuJoCo and DexJoCo"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "mujoco==3.4.0",
+    "numpy==1.26.4",
+    "scipy>=1.12,<2",
+    "osqp>=1.1,<2",
+    "trimesh>=4.6,<6",
+    "rtree>=1.4,<2",
+]
+
+[project.optional-dependencies]
+ycb = ["coacd==1.0.14", "warp-lang>=1.10,<2"]
+
+[project.scripts]
+wholehand = "wholehand.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
